@@ -1,6 +1,114 @@
+/* Implement your CSS code in this file. Do not change anything in any other file. Only this will be graded. */
+
+/* Body */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.5;
+    color: grey;
+    background: white;
+}
+/**** FOR DESKTOP *****/
+/* The Title and Navigation ****
+1.Title and navigation menu are in a row. */
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+nav { 
+    display: flex;
+    gap: 30px;
+    justify-items: space-between;
+
+}
+
+.p {
+    flex-grow: 2;
+    align-self: flex-start;
+    align-content: flex-start;
+}
+
+/***** Main Body ****
+2. There should be a gap of 100px between div#leftContainer and div#rightContainer, and both of these div should be of equal length.
+3. div#mainBody should have 50px of bottom margin.
+4. div#rightContainer should be a grid layout with 3 rows of hight 160px (grid-template-rows: repeat(3, 160px)) and the 3 columns where first column is twice the width of other 2 column (grid-template-columns: 2fr 1fr 1fr;) 
+5. The header tag should have a 30 px of vertical padding. */
+
+#mainBody {
+    display: flex;
+    margin-bottom: 50px;
+    height: 500px;
+}
+
+#leftContainer {
+flex-basis: 50%;
+    margin: 10px;
+    gap: 100px;
+    
+}
+
+#rightContainer {
+    flex-basis: 50%;
+    display: grid;
+    justify-content: right;
+    min-height: 100px;
+    min-width: 100px;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(3 160px);
+    grid-template-areas: 
+    'grid b c'
+    'a d e'
+    'a f G';
+}
+
 /*
-Implement your CSS code in this file. Do not change anything in any other file.
-Only this will be graded.
+firstImag sendimg tirrdImg
+firstimg fiuthimg fifthimg
+firstImg siximg senvimg
 */
 
+#img {
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(border.png) 50%round;
+}
 
+/***** TABLET *******
+ 1. body width should be 60%.
+ 2. div#leftContainer and div#rightContainer should be arranged in a column.
+ 3. Gap between div#leftContainer and div#rightContainer should be 40px
+4. div#rightContainer grid should have 2 columns of equal width and 3 rows of hight 160px.
+5. Set display: none for class "display_md"
+
+*/
+@media (max-width:60%) {
+    body {
+        min-width: 60%;
+    }
+
+    #leftContainer {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    #rightContainer {
+        flex-direction: column;
+        grid-template-columns: 2;
+        grid-template-rows: repeat(3 160px);
+        gap: 40px;
+    }
+    #display_md {
+        display: none;
+    }
+}
+/*****  MOBILE *******
+1. body should be 80% */
+
+@media (max-width: 570px) {
+    body {
+        flex: 80%;
+    }
+}
