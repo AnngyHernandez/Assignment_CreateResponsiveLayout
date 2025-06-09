@@ -1,12 +1,5 @@
 /* Implement your CSS code in this file. Do not change anything in any other file. Only this will be graded. */
 
-/* Body */
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    line-height: 1.5;
-    color: grey;
-    background: white;
-}
 /**** FOR DESKTOP *****/
 /* The Title and Navigation ****
 1.Title and navigation menu are in a row. */
@@ -15,14 +8,16 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 
-nav { 
+nav {
     display: flex;
+    flex-direction: row;
     gap: 30px;
-    justify-items: space-between;
-
+    align-items:center;
+    justify-content:space-between;
+    font-size: small;
 }
 
 .p {
@@ -37,43 +32,57 @@ nav {
 4. div#rightContainer should be a grid layout with 3 rows of hight 160px (grid-template-rows: repeat(3, 160px)) and the 3 columns where first column is twice the width of other 2 column (grid-template-columns: 2fr 1fr 1fr;) 
 5. The header tag should have a 30 px of vertical padding. */
 
-#mainBody {
+div#mainBody {
     display: flex;
     margin-bottom: 50px;
-    height: 500px;
 }
 
-#leftContainer {
-flex-basis: 50%;
-    margin: 10px;
-    gap: 100px;
-    
-}
-
-#rightContainer {
+div#leftContainer {
     flex-basis: 50%;
-    display: grid;
-    justify-content: right;
-    min-height: 100px;
-    min-width: 100px;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: repeat(3 160px);
-    grid-template-areas: 
-    'grid b c'
-    'a d e'
-    'a f G';
+    margin-right: 10px;
+    margin-right: 100px;
+
 }
 
-/*
-firstImag sendimg tirrdImg
-firstimg fiuthimg fifthimg
-firstImg siximg senvimg
-*/
+div#rightContainer {
+    flex-basis: 50%;
+    gap: 100px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(3, 160px);
+    gap: 10px;
+    grid-template-areas:
+        "a b c"
+        "a d e"
+        "a f g";
+}
 
-#img {
-    border: 10px solid transparent;
-    padding: 15px;
-    border-image: url(border.png) 50%round;
+.item-a {
+    grid-area: a;
+}
+
+.item-b {
+    grid-area: b;
+}
+
+.item-c {
+    grid-area: c;
+}
+
+.item-d {
+    grid-area: d;
+}
+
+.iteme {
+    grid-area: e;
+}
+
+.item-f {
+    grid-area: f;
+}
+
+.item-g {
+    grid-area: g;
 }
 
 /***** TABLET *******
@@ -84,31 +93,52 @@ firstImg siximg senvimg
 5. Set display: none for class "display_md"
 
 */
-@media (max-width:60%) {
+@media (max-device-width:1000px) {
     body {
         min-width: 60%;
     }
 
-    #leftContainer {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        display: row;
+    }
+
+
+    #mainBody {
         flex-direction: column;
         gap: 40px;
     }
 
-    #rightContainer {
+    div#rightContainer {
         flex-direction: column;
-        grid-template-columns: 2;
-        grid-template-rows: repeat(3 160px);
-        gap: 40px;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 160px);
+        gap: 10px;
+        grid-template-areas:
+            "b c"
+            "d e"
+            "f g";
     }
-    #display_md {
+
+    .item-a {
+        display: none;
+
+    }
+
+    .diplay_md {
         display: none;
     }
 }
+
 /*****  MOBILE *******
 1. body should be 80% */
 
 @media (max-width: 570px) {
     body {
-        flex: 80%;
+        width: 80%;
     }
 }
